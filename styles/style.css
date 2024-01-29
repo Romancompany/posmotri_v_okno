@@ -37,65 +37,185 @@ ol {
   list-style: none;
 }
 
-.page {
-
-    background-color: yellow; 
+/* .visually-hidden - скопирован из задания */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
+/* Расположить блок .content посередине .page. */
+.page {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* Расположить элементы .content в строку, прижав к низу вертикальной оси. 
+   Задать горизонтальные размеры .content и отступы между его элементами. */
 .content {
-  margin-top: 200px;
+  width: 1140px;
+  height: 534px;
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
   column-gap: 30px;
-
-   background-color: blueviolet; 
 }
 
 .result {
-  min-width: 711px;
+  width: 711px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   row-gap: 16px;
-
-  background-color: green;
 }
 
+/*
+Задать размеры контейнеру .result__video-container и добавить отступ снизу.
+*/
 .result__video-container {
-  width: 100%;
+  position: relative;
+  height: 386px;
+  width: inherit;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  background-color: aquamarine;
+  align-items: flex-end;
+  overflow: clip;
 }
 
 .result__video {
-  width: 100%; 
+  width: 100%;  
 }
 
+/*
+Расположить элементы .search-form в строку и пропорционально распределить между ними свободное пространство, прижать их к началу контейнера
+*/
 .search-form {
+  height: 54px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-
-  background-color: burlywood;
+  align-items: flex-end;
+  gap: 20px;
 }
 
+.search-form__fieldset {
+   border: none; 
+   height: 100%;
+   width: fit-content;
+
+   color: white;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.search-form__label {
+  width: fit-content;
+  /* color: inherit;  */
+}
+
+/*
+управление размерами,
+границей, 
+цветом текста, 
+семейством шрифта, 
+размером шрифта, 
+фоном. 
+Некоторые из этих свойств не наследуются.
+*/
+.search-form__textfield {
+  cursor: pointer;
+  box-sizing: inherit; 
+
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  border-left: 1px solid #1b1919;
+  border-right: 1px solid #1b1919;
+
+  color: inherit; 
+  background-color: inherit;
+  font-size: inherit;
+}
+
+.search-form__label {
+  border: 1px solid #1b1919; 
+}
+
+.search-form__label:has(:focus-visible) {
+  border: 1px solid #fff; 
+}
+
+/*
+.search-form__textfield:focus {
+  border: none;
+
+  color: inherit; 
+  background-color: inherit;
+  font-size: inherit;
+
+  outline: 1px solid #ffffff;  
+}
+*/
+
+
+.search-form__checkbox-list {
+
+  appearance: none;
+
+  width: 212px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.button {
+  box-sizing: inherit; 
+  cursor: pointer;
+  border: 1px solid #fff;
+  height: 34px;
+  width: 194px;
+
+  color: inherit;
+  background-color: inherit;
+  font-size: inherit;
+
+  /* background-color: transparent; */
+}
+
+.search-form__submit-button {
+  
+}
+
+.more-button {
+  display: block;
+  width: calc(100% - 1px);
+  margin: 1px;
+}
+
+/*
+Растянуть .content__details во всю доступную ширину и высоту контейнера и добавить отступы между заголовком и зоной с карточками.
+*/
 .content__details {
-  height: 534px;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 26px;
-  overflow: hidden scroll;
-
-  background-color: brown;
 }
 
 .title {
   font-family: Oswald;
   font-size: 75px;
-  font-style: normal;
   font-weight: 700;
   line-height: 94%; /* 70.5px */
   text-transform: uppercase;
@@ -105,23 +225,87 @@ ol {
   color: #545050;
 }
 
+/*
+Установить вертикальный размер для .content__list и добавить скролл при переполнении.
+Создать вертикальные отступы между элементами .content__list-item (у всех, кроме последнего).
+*/
 .content__list {
+  height: 100%; 
+  padding: 1px; 
+  position: relative;
   display: flex;
   flex-direction: column;
   row-gap: 30px;
-
-  background-color: white;
-
+  overflow: auto; 
 }
 
-.content__video-card {
-  display: flex;
-}
-
-.content__video-card-thumbnail {
-  width: 194px;
-}
-
-.content__video-card-description-container {
+.content__list-item {
+  display: block;
+  height: 103px;
   width: 100%;
+}
+
+.content__card-link {
+  height: inherit;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+Расположить элементы внутри контейнера .content__video-card в строку, прижав к началу контейнера по дополнительной оси.
+*/
+.content__video-card {
+  height: inherit;
+  display: flex;
+  align-items: flex-start;
+}
+
+/*
+Сделать так, чтобы .content__video-card-description-container занимал всё доступное пространство, не занятое картинкой.
+*/
+.content__video-card-description-container {
+  height: inherit;
+  width: 100%;
+}
+
+.content__video-card-title {
+  display: block;
+  height: 36px;
+  width: 100%;
+
+  font-family: Oswald;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 100%; /* 30px */
+  text-transform: uppercase;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.content__video-card-description {
+  display: block;
+  width: 100%;
+  height: 67px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16px; /* 90% */
+
+  text-overflow: ellipsis;
+  white-space: break-spaces;
+  overflow: hidden;
+  overflow-wrap: normal;
+}
+
+
+/*
+Задать размеры .content__video-card-thumbnail и замостить в них изображение.
+*/
+.content__video-card-thumbnail {
+  height: inherit;
+  width: 194px;
+  object-fit: cover;
 }
