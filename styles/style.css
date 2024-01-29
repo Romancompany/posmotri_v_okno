@@ -177,7 +177,6 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
-  position: relative;
   display: inline-block;
   height: 19px;
   width: 19px;
@@ -186,8 +185,11 @@ ol {
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   content: '';  
-  position: absolute;
-  inset: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  margin-left: 1px;
   height: 15px;
   width: 15px;
   background-color: #fff;
@@ -201,7 +203,6 @@ ol {
 .search-form__label-text {
   padding-left: 4px;
 }
-
 
 .button {
   box-sizing: inherit;
