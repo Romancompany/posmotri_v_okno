@@ -82,13 +82,12 @@ ol {
   position: relative;
   height: 386px;
   width: inherit;
-  display: flex;
-  align-items: flex-end;
-  overflow: clip;
 }
 
 .result__video {
   width: 100%;
+  object-fit: cover;
+  object-position: bottom;
 }
 
 /*
@@ -362,4 +361,5 @@ ol {
   height: inherit;
   width: 194px;
   object-fit: cover;
+  object-position: bottom;
 }
