@@ -234,10 +234,8 @@ ol {
 }
 
 .more-button {
-  margin-bottom: 2px;
-  margin-right: 1px;
-  margin-left: 1px;
-  width: 378px;  
+  margin: 1px;
+  width: 399px;  
 }
 
 /*
@@ -269,9 +267,10 @@ ol {
 Создать вертикальные отступы между элементами .content__list-item (у всех, кроме последнего).
 */
 .content__list {
-  height: 294px;
-  padding-top: 3px;
   position: relative;
+  height: 294px;
+  padding: 1px;
+  padding-top: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
